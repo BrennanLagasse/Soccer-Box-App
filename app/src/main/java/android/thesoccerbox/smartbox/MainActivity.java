@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mNextButton;
 
     private Button[] roomButtons = {mRoomOneButton, mRoomTwoButton, mRoomThreeButton, mRoomFourButton};
-    private boolean[] roomButtonValues = new boolean[4];
+    int numSelected = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +29,97 @@ public class MainActivity extends AppCompatActivity {
         mRoomFourButton = (Button) findViewById(R.id.room_four_button);
         mNextButton = (Button) findViewById(R.id.next_button);
 
+        mNextButton.setEnabled(false);
+
+        // Change status of button 1 when selected
         mRoomOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, R.string.test, Toast.LENGTH_SHORT).show();
+                if(mRoomOneButton.isSelected()) {
+                    mRoomOneButton.setSelected(false);
+                    numSelected--;
 
-                if(roomButtonValues[0]) {
-
+                    if(numSelected == 0) {
+                        mNextButton.setEnabled(false);
+                    }
                 }
                 else {
+                    mRoomOneButton.setSelected(true);
+                    numSelected++;
 
+                    mNextButton.setEnabled(true);
                 }
+            }
+        });
+
+        // Change status of button 2 when selected
+        mRoomTwoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mRoomTwoButton.isSelected()) {
+                    mRoomTwoButton.setSelected(false);
+                    numSelected--;
+
+                    if(numSelected == 0) {
+                        mNextButton.setEnabled(false);
+                    }
+                }
+                else {
+                    mRoomTwoButton.setSelected(true);
+                    numSelected++;
+
+                    mNextButton.setEnabled(true);
+                }
+            }
+        });
+
+        // Change status of button 3 when selected
+        mRoomThreeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mRoomThreeButton.isSelected()) {
+                    mRoomThreeButton.setSelected(false);
+                    numSelected--;
+
+                    if(numSelected == 0) {
+                        mNextButton.setEnabled(false);
+                    }
+                }
+                else {
+                    mRoomThreeButton.setSelected(true);
+                    numSelected++;
+
+                    mNextButton.setEnabled(true);
+                }
+            }
+        });
+
+        // Change status of button 4 when selected
+        mRoomFourButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mRoomFourButton.isSelected()) {
+                    mRoomFourButton.setSelected(false);
+                    numSelected--;
+
+                    if(numSelected == 0) {
+                        mNextButton.setEnabled(false);
+                    }
+                }
+                else {
+                    mRoomFourButton.setSelected(true);
+                    numSelected++;
+
+                    mNextButton.setEnabled(true);
+                }
+            }
+        });
+
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Move to next page
+                Toast.makeText(MainActivity.this, "Go to next page", Toast.LENGTH_SHORT).show();
             }
         });
 
