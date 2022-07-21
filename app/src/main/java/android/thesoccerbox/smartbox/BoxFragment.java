@@ -1,5 +1,6 @@
 package android.thesoccerbox.smartbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -124,7 +125,8 @@ public class BoxFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Move to next page
+                Intent intent = new Intent(getActivity(), GameTypeActivity.class);
+                startActivity(intent);
             }
         });
 
