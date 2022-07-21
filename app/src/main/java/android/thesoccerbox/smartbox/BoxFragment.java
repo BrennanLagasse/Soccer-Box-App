@@ -30,11 +30,11 @@ public class BoxFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_boxes, container, false);
 
-        mRoomOneButton = (Button) v.findViewById(R.id.room_one_button);
-        mRoomTwoButton = (Button) v.findViewById(R.id.room_two_button);
-        mRoomThreeButton = (Button) v.findViewById(R.id.room_three_button);
-        mRoomFourButton = (Button) v.findViewById(R.id.room_four_button);
-        mNextButton = (Button) v.findViewById(R.id.next_button);
+        mRoomOneButton = v.findViewById(R.id.room_one_button);
+        mRoomTwoButton = v.findViewById(R.id.room_two_button);
+        mRoomThreeButton = v.findViewById(R.id.room_three_button);
+        mRoomFourButton = v.findViewById(R.id.room_four_button);
+        mNextButton = v.findViewById(R.id.next_button);
 
         mNextButton.setEnabled(false);
 
