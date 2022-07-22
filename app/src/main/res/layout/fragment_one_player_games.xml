@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/room_selection_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:text="@string/game_selection_prompt" />
+
+    <include
+        android:id="@+id/game_1"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_2"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_3"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_4"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_5"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_6"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_7"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_8"
+        layout="@layout/list_item_game" />
+
+    <include
+        android:id="@+id/game_9"
+        layout="@layout/list_item_game" />
+
+
+
+
+
+
+
+</LinearLayout>

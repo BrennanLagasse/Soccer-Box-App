@@ -6,7 +6,12 @@
     <string name="room_three_button">3</string>
     <string name="room_four_button">4</string>
     <string name="next_button">Next</string>
+    <string name="players_selection_prompt">Select Game Type</string>
     <string name="one_player_button">One Player</string>
     <string name="two_player_button">Two Player</string>
     <string name="test_mode_button">Test Mode</string>
+
+    <string name="game_selection_prompt">Select Game</string>
+    <string name="standard_game_title">Standard Game</string>
+    <string name="standard_game_description">Player shoots for single target that lights up</string>
 </resources>

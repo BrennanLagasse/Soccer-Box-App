@@ -1,12 +1,16 @@
 package android.thesoccerbox.smartbox;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+
+import static android.content.ContentValues.TAG;
 
 public class PlayerFragment extends Fragment {
 
@@ -16,6 +20,7 @@ public class PlayerFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "PlayerFragment created :)");
         super.onCreate(savedInstanceState);
     }
 
@@ -32,7 +37,9 @@ public class PlayerFragment extends Fragment {
         mOnePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Link this to the one player game list
+                Log.d(TAG, "Going to GameList :)");
+                Intent intent = new Intent(getActivity(), GameListActivity.class);
+                startActivity(intent);
             }
         });
 

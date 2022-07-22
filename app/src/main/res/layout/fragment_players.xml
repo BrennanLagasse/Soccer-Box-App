@@ -7,6 +7,15 @@
     android:orientation = "vertical"
     android:gravity="center_vertical">
 
+    <TextView
+        android:id="@+id/room_selection_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:text="@string/players_selection_prompt" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

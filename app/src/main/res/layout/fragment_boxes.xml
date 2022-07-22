@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation = "vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,9 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:layout_marginTop="80dp"
         android:textAlignment="center"
-        android:textSize="60sp"
+        android:textSize="40sp"
         android:text="@string/room_selection_prompt" />
 
     <LinearLayout
