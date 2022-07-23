@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="rezzil_red">#aa001d</color>
+    <color name="rezzil_blue_gray">#3488af</color>
+    <color name="rezzil_orange">#f98f43</color>
+    <color name="rezzil_yellow">#f2af00</color>
+    <color name="rezzil_green">#52d259</color>
+    <color name="rezzil_blue">#1e57b0</color>
+    <color name="rezzil_burgundy">#660032</color>
+    <color name="rezzil_purple">#4b2b7e</color>
+    <color name="rezzil_gold">#beb08d</color>
+    <color name="rezzil_dark_green">#3c4444</color>
 </resources>
