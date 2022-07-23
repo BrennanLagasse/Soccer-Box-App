@@ -83,7 +83,7 @@ public class GameListFragment extends Fragment {
         @Override
         public void onClick(View view) {
             //Use mGame to send relevant information to the settings page
-            Intent intent = new Intent(getActivity(), GameSettingsActivity.class);
+            Intent intent = GameSettingsActivity.newIntent(getActivity(), mGame.getId());
             startActivity(intent);
         }
 

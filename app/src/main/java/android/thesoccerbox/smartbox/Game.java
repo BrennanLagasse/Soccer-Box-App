@@ -1,5 +1,6 @@
 package android.thesoccerbox.smartbox;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Game {
@@ -11,12 +12,16 @@ public class Game {
     private final String mTitle;
     private final String mDescription;
     private final String mCodePath;
+    private final boolean mSynchOption;
+    private final boolean mAsynchOption;
 
-    public Game(String title, String description, String code_path) {
+    public Game(String title, String description, boolean synch, boolean asynch, String code_path) {
         mId = UUID.randomUUID();
         mTitle = title;
         mDescription = description;
         mCodePath = code_path;
+        mSynchOption = synch;
+        mAsynchOption = asynch;
     }
 
     public UUID getId() {
@@ -31,4 +36,6 @@ public class Game {
     public String getCodePath() {
         return mCodePath;
     }
+    public boolean getSynch() { return mSynchOption; }
+    public boolean getAsynch() { return mAsynchOption; }
 }

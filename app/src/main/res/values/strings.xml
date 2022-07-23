@@ -13,4 +13,7 @@
 
     <string name="game_selection_prompt">Select Game</string>
     <string name="start_prompt">START</string>
+    <string name="standard_status">STANDARD</string>
+    <string name="synchronous_status">SYNCHRONOUS</string>
+    <string name="asynchronous_status">ASYNCHRONOUS</string>
 </resources>

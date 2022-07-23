@@ -6,27 +6,27 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/value_label_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:textSize="25sp"
-        android:text="Title" />
+        android:textSize="20sp"
+        android:text="Insert Value Name" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_margin="10dp">
+        android:layout_margin="5sp">
 
         <Button
             android:id="@+id/minus_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:text="-" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="45sp"
+            android:textSize="35sp"
             android:text="1" />
 
         <Button
@@ -42,8 +42,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:text="+" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5sp"
+        android:background="@android:color/darker_gray"/>
 
 </LinearLayout>

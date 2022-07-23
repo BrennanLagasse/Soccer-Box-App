@@ -19,7 +19,7 @@ import static java.lang.String.valueOf;
 
 public class GameListActivity extends SingleFragmentActivity {
 
-    private static final String EXTRA_NUM_PLAYERS = "android.smartbox.num_players";
+    private static final String EXTRA_NUM_PLAYERS = "android.smart_box.num_players";
 
     private int mNumPlayers;
 
@@ -38,7 +38,7 @@ public class GameListActivity extends SingleFragmentActivity {
 
     public static Intent newIntent(Context packageContext, int numPlayers) {
         /**
-         * This method can be used to create intents bound for this activity with a list of games
+         * This method can be used to create intents bound for this activity with the number of players
          */
         Intent intent = new Intent(packageContext, GameListActivity.class);
         intent.putExtra(EXTRA_NUM_PLAYERS, numPlayers);
