@@ -8,13 +8,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.util.UUID;
 
 import static android.content.ContentValues.TAG;
+import static java.lang.String.valueOf;
 
 public class LiveGameActivity extends SingleFragmentActivity {
 
     private static final String GAME_ID = "android.smart_box.live.game_id";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     protected Fragment createFragment() {
@@ -30,4 +38,6 @@ public class LiveGameActivity extends SingleFragmentActivity {
         intent.putExtra(GAME_ID, gameID);
         return intent;
     }
+
+
 }

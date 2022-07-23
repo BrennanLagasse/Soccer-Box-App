@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_margin="5sp">
+        android:layout_margin="3sp">
 
         <Button
             android:id="@+id/minus_button"
@@ -34,7 +34,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:text="1" />
 
         <Button
@@ -49,7 +49,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="5sp"
+        android:layout_marginTop="3sp"
         android:background="@android:color/darker_gray"/>
 
 </LinearLayout>
