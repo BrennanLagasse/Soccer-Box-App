@@ -38,7 +38,7 @@ public class PlayerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Going to GameList :)");
-                Intent intent = new Intent(getActivity(), GameListActivity.class);
+                Intent intent = GameListActivity.newIntent(getActivity(), 1);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,8 @@ public class PlayerFragment extends Fragment {
         mTwoPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Link this to the two player game list
+                Intent intent = GameListActivity.newIntent(getActivity(), 2);
+                startActivity(intent);
             }
         });
 
@@ -55,7 +56,8 @@ public class PlayerFragment extends Fragment {
         mTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Link this to the test list
+                Intent intent = GameListActivity.newIntent(getActivity(), 0);
+                startActivity(intent);
             }
         });
 

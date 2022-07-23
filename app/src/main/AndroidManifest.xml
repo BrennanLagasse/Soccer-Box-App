@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartBox">
+        <activity android:name=".GameSettingsActivity"></activity>
         <activity android:name=".GameListActivity" />
         <activity android:name=".GameTypeActivity" />
         <activity android:name=".MainActivity">
