@@ -12,21 +12,21 @@ import java.util.UUID;
 
 import static android.content.ContentValues.TAG;
 
-public class GameSettingsActivity extends SingleFragmentActivity {
+public class LiveGameActivity extends SingleFragmentActivity {
 
-    public static final String GAME_ID = "android.smart_box.settings.game_id";
+    private static final String GAME_ID = "android.smart_box.live.game_id";
 
     @Override
     protected Fragment createFragment() {
-        Log.d(TAG, "GameSettingsActivity creating fragment");
-        return new GameSettingsFragment();
+        Log.d(TAG, "LiveGameActivity creating fragment");
+        return new LiveGameFragment();
     }
 
     public static Intent newIntent(Context packageContext, UUID gameID) {
         /*
          * This method can be used to create intents bound for this activity with the number of players
          */
-        Intent intent = new Intent(packageContext, GameSettingsActivity.class);
+        Intent intent = new Intent(packageContext, LiveGameActivity.class);
         intent.putExtra(GAME_ID, gameID);
         return intent;
     }

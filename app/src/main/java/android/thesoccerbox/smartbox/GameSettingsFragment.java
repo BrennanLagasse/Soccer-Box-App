@@ -1,5 +1,6 @@
 package android.thesoccerbox.smartbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,9 @@ public class GameSettingsFragment extends Fragment {
 
     private Game mGame;
 
-    private TextView mTitle;
+    private TextView mTitleView;
     private Button mSynchButton;
+    private Button mStartButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,8 @@ public class GameSettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        mTitle = view.findViewById(R.id.settings_title_text);
-        mTitle.setText((mGame.getTitle() + " Settings"));
+        mTitleView = view.findViewById(R.id.settings_title_text);
+        mTitleView.setText((mGame.getTitle() + " Settings"));
 
         mSynchButton = view.findViewById(R.id.synchronous_button);
 
@@ -60,6 +62,17 @@ public class GameSettingsFragment extends Fragment {
                 else {
                     mSynchButton.setText(getString(R.string.synchronous_status));
                 }
+            }
+        });
+
+        mStartButton = view.findViewById(R.id.start_button);
+
+        mStartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Use mGame to send relevant information to the live page
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mGame.getId());
+                startActivity(intent);
             }
         });
 
