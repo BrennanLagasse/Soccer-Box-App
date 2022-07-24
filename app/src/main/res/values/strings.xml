@@ -16,4 +16,13 @@
     <string name="standard_status">STANDARD</string>
     <string name="synchronous_status">SYNCHRONOUS</string>
     <string name="asynchronous_status">ASYNCHRONOUS</string>
+
+    <string name="game_number_prompt">Number of Games</string>
+    <string name="game_time_prompt">Game Length (In Seconds)</string>
+    <string name="game_delay_prompt">Delay Between Games (In Seconds)</string>
+    <string name="target_time_prompt">Time per Target (In Seconds)</string>
+
+    <string name="default_game_length">60</string>
+    <string name="default_delay_length">90</string>
+    <string name="default_target_time">5</string>
 </resources>
