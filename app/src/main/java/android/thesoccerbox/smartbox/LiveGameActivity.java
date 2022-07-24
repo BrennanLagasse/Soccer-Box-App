@@ -16,13 +16,7 @@ import static java.lang.String.valueOf;
 
 public class LiveGameActivity extends SingleFragmentActivity {
 
-    private static final String GAME_ID = "android.smart_box.live.game_id";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    public static final String GAME_ID = "android.smart_box.live.game_id";
 
     @Override
     protected Fragment createFragment() {

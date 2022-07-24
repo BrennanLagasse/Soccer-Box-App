@@ -12,13 +12,15 @@ public class Game {
     private final String mTitle;
     private final String mDescription;
     private final String mCodePath;
+    private final int mNumPlayers;
     private final boolean mSynchOption;
     private final boolean mAsynchOption;
 
-    public Game(String title, String description, boolean synch, boolean asynch, String code_path) {
+    public Game(String title, String description, int numPlayers, boolean synch, boolean asynch, String code_path) {
         mId = UUID.randomUUID();
         mTitle = title;
         mDescription = description;
+        mNumPlayers = numPlayers;
         mCodePath = code_path;
         mSynchOption = synch;
         mAsynchOption = asynch;
@@ -33,6 +35,7 @@ public class Game {
     public String getDescription() {
         return mDescription;
     }
+    public int getNumPlayers() { return mNumPlayers; }
     public String getCodePath() {
         return mCodePath;
     }

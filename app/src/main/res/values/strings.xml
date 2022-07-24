@@ -25,4 +25,14 @@
     <string name="default_game_length">60</string>
     <string name="default_delay_length">90</string>
     <string name="default_target_time">5</string>
+
+    <string name="no_connection">No Connection</string>
+
+    <string name="disconnected">DISCONNECTED</string>
+    <string name="connected">CONNECTED</string>
+
+    <string name="one_player_score_title">Score</string>
+    <string name="two_player_score_title_one">Player 1 Score</string>
+    <string name="two_player_score_title_two">Player 2 Score</string>
+    <string name="default_score">0</string>
 </resources>
