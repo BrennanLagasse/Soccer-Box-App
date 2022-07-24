@@ -54,7 +54,7 @@
         android:id="@+id/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="8sp"
         android:textSize="25sp"
         android:text="@string/start_prompt" />
 

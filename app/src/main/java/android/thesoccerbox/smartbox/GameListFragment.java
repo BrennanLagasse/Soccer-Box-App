@@ -21,6 +21,7 @@ public class GameListFragment extends Fragment {
 
     private RecyclerView mGameRecyclerView;
     private GameAdapter mAdapter;
+    private int mNumPlayers;
 
     private List<Game> mGameList;
 
@@ -30,16 +31,16 @@ public class GameListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         GameListActivity a = (GameListActivity) getActivity();
-        int num_players = a.getNumPlayers();
+        mNumPlayers = a.getNumPlayers();
 
-        Log.d(TAG, ("Num Players: " + num_players));
+        Log.d(TAG, ("Num Players: " + mNumPlayers));
 
         GameManager gameManager = GameManager.get(getActivity());
 
-        if(num_players == 1) {
+        if(mNumPlayers == 1) {
             mGameList = gameManager.getOnePlayerGames();
         }
-        else if(num_players == 2) {
+        else if(mNumPlayers == 2) {
             mGameList = gameManager.getTwoPlayerGames();
         }
         else {
@@ -82,9 +83,18 @@ public class GameListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            //Use mGame to send relevant information to the settings page
-            Intent intent = GameSettingsActivity.newIntent(getActivity(), mGame.getId());
-            startActivity(intent);
+            //Determine next step based on number of players
+            if(mNumPlayers == 1 || mNumPlayers == 2) {
+                // Send mGame to the settings page to determing list of games
+                Intent intent = GameSettingsActivity.newIntent(getActivity(), mGame.getId());
+                startActivity(intent);
+            }
+            else {
+                // Send mGame to the live page and start immediately
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mGame.getId());
+                startActivity(intent);
+            }
+
         }
 
         private void bind(Game game) {

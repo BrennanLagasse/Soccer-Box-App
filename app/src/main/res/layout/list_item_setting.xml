@@ -18,16 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="2sp">
+        android:gravity="center">
 
         <Button
             android:id="@+id/minus_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="20sp"
-            android:text="-" />
+            android:textSize="18sp"
+            android:text="@string/minus_button" />
 
         <EditText
             android:id="@+id/value_text"
@@ -38,15 +37,15 @@
             android:layout_marginStart="10sp"
             android:layout_marginEnd="10sp"
             android:text="1"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <Button
             android:id="@+id/plus_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="20sp"
-            android:text="+" />
+            android:textSize="18sp"
+            android:text="@string/plus_button" />
     </LinearLayout>
 
     <View
