@@ -31,11 +31,14 @@
 
     <string name="no_connection">No Connection</string>
 
-    <string name="disconnected">DISCONNECTED</string>
+    <string name="connecting">CONNECTING</string>
+    <string name="connection_failed">CONNECTION FAIL</string>
     <string name="connected">CONNECTED</string>
 
     <string name="one_player_score_title">Score</string>
     <string name="two_player_score_title_one">Player 1 Score</string>
     <string name="two_player_score_title_two">Player 2 Score</string>
     <string name="default_score">0</string>
+
+    <string name="game_title">%s Game</string>
 </resources>

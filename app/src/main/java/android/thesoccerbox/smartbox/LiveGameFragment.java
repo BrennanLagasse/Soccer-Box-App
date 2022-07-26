@@ -30,10 +30,10 @@ public class LiveGameFragment extends Fragment {
 
     private TextView mTitle;
     private TextView mConnectionStatus;
-    private TextView mScoreTitle1;
-    private TextView mScore1;
-    private TextView mScoreTitle2;
-    private TextView mScore2;
+
+    private ByteArrayOutputStream baos;
+
+    protected String results;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,19 @@ public class LiveGameFragment extends Fragment {
         mGame = GameManager.get(getActivity()).getGame(gameId);
 
         // Start game here (potentially in a new thread?)
+        Executor executor = new Executor() {
+            @Override
+            public void execute(Runnable runnable) {
+                runnable.run();
+            }
+        };
+
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                results = executeCommand(mGame.getCodePath());
+            }
+        });
 
     }
 
@@ -53,32 +66,17 @@ public class LiveGameFragment extends Fragment {
         View view = inflater.inflate(R.layout.live_game, container, false);
 
         mTitle = view.findViewById(R.id.game_title);
-        mTitle.setText((mGame.getTitle() + " Game"));
+        mTitle.setText(getString(R.string.game_title, mGame.getTitle()));
 
         mConnectionStatus = view.findViewById(R.id.connection_status);
-
-        mScoreTitle1 = view.findViewById(R.id.score_title_1);
-        mScore1 = view.findViewById(R.id.score_value_1);
-        mScoreTitle2 = view.findViewById(R.id.score_title_2);
-        mScore2 = view.findViewById(R.id.score_value_2);
-
-        // Default text is for players = 2
-        if(mGame.getNumPlayers() == 1) {
-            // Collapse second score and rewrite player 1 score to just score
-            mScoreTitle1.setText(R.string.one_player_score_title);
-            mScoreTitle2.setText("");
-            mScore2.setText("");
-        }
-        else if(mGame.getNumPlayers() == 0) {
-            // Set default scores for testing
-            mScore1.setText("20");
-            mScore2.setText("22");
-        }
 
         return view;
     }
 
-    public String executeCommand(String command) throws Exception {
+    public String executeCommand(String command) {
+        /*
+        *  Connects to a raspberry pi and runs the given command
+        */
 
         final String user = "ssh";
         final String password = "raspberry";
@@ -86,7 +84,7 @@ public class LiveGameFragment extends Fragment {
         final int port = 22;
 
         try {
-            Log.d(TAG, "Attempting to connect to Pi");
+            Log.d(TAG, "*****Attempting to connect to Pi*****");
 
             JSch jsch = new JSch();
             Session session = jsch.getSession(user, host, port);
@@ -104,7 +102,7 @@ public class LiveGameFragment extends Fragment {
             // SSH Channel
             ChannelExec channelssh = (ChannelExec)
                     session.openChannel("exec");
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            baos = new ByteArrayOutputStream();
             channelssh.setOutputStream(baos);
 
             // Execute command

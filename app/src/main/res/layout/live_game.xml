@@ -32,57 +32,6 @@
         android:gravity="center"
         android:layout_marginTop="3sp"
         android:textSize="35sp"
-        android:text="@string/disconnected" />
-
-    <TextView
-        android:id="@+id/timer_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        android:textSize="25sp"
-        android:text="Time Remaining" />
-
-    <TextView
-        android:id="@+id/timer_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:text="0s" />
-
-    <TextView
-        android:id="@+id/score_title_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        android:textSize="25sp"
-        android:text="@string/two_player_score_title_one" />
-
-    <TextView
-        android:id="@+id/score_value_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:text="@string/default_score" />
-
-    <TextView
-        android:id="@+id/score_title_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        android:textSize="25sp"
-        android:text="@string/two_player_score_title_two" />
-
-    <TextView
-        android:id="@+id/score_value_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:text="@string/default_score" />
+        android:text="@string/connecting" />
 
 </LinearLayout>
