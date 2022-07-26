@@ -113,7 +113,7 @@ public class LiveGameFragment extends Fragment {
             return baos.toString();
         }
         catch(Exception e) {
-            Log.d(TAG, "Connection Issues 1");
+            Log.d(TAG, "*********************Connection Issues 1************************");
             return "";
         }
     }

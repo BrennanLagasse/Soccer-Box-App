@@ -47,7 +47,7 @@ public class GameManager {
         mTwoPlayerGames.add(new Game("Three Goal Game Timed", "Each player must hit the opposing three targets", 2, false, false, "???"));
         mTwoPlayerGames.add(new Game("1v1", "One target for each player that changes after a set interval", 2, true, false, "???"));
 
-        mTestGames.add(new Game("LED Test", "Lights up all LEDs one target at a time", 0, false, false, "???"));
+        mTestGames.add(new Game("LED Test", "Lights up all LEDs one target at a time", 0, false, false, "light_test.py"));
         mTestGames.add(new Game("Scoreboard Test", "Displays score on screen", 0, false, false,  "???"));
         mTestGames.add(new Game("Speaker Test", "Cycles through all game sounds", 0, false, false,  "???"));
 
