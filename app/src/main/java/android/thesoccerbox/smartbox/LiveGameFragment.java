@@ -1,6 +1,7 @@
 package android.thesoccerbox.smartbox;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -76,6 +77,10 @@ public class LiveGameFragment extends Fragment {
             // do something with the result
             Log.d(TAG, "************************* It finished!!! :) ***********************");
             Log.d(TAG, result);
+
+            //Use mGame to send relevant information to the results page
+            Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId());
+            startActivity(intent);
         }
     }
 

@@ -26,7 +26,7 @@ public class LiveGameActivity extends SingleFragmentActivity {
 
     public static Intent newIntent(Context packageContext, UUID gameID) {
         /*
-         * This method can be used to create intents bound for this activity with the number of players
+         * This method can be used to create intents bound for this activity with the game ID
          */
         Intent intent = new Intent(packageContext, LiveGameActivity.class);
         intent.putExtra(GAME_ID, gameID);

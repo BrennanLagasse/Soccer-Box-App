@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Smart Box</string>
+
+    <string name="missing_value">N/A</string>
+
     <string name="room_selection_prompt">Select Boxes</string>
     <string name="room_one_button">1</string>
     <string name="room_two_button">2</string>
@@ -38,7 +41,16 @@
     <string name="one_player_score_title">Score</string>
     <string name="two_player_score_title_one">Player 1 Score</string>
     <string name="two_player_score_title_two">Player 2 Score</string>
-    <string name="default_score">0</string>
 
     <string name="game_title">%s Game</string>
+
+    <string name="game_over">Game Over</string>
+    <string name="play_again">Play Again</string>
+    <string name="new_game">New Game</string>
+    <string name="shutdown">Shut Down</string>
+
+    <string name="room_one">Room 1</string>
+    <string name="room_two">Room 2</string>
+    <string name="room_three">Room 3</string>
+    <string name="room_four">Room 4</string>
 </resources>
