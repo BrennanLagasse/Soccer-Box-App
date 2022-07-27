@@ -1,5 +1,6 @@
 package android.thesoccerbox.smartbox;
 
+import android.app.Activity;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -43,21 +44,7 @@ public class LiveGameFragment extends Fragment {
                 .getSerializableExtra(LiveGameActivity.GAME_ID);
         mGame = GameManager.get(getActivity()).getGame(gameId);
 
-        // Start game here (potentially in a new thread?)
-        Executor executor = new Executor() {
-            @Override
-            public void execute(Runnable runnable) {
-                runnable.run();
-            }
-        };
-
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                results = executeCommand(mGame.getCodePath());
-            }
-        });
-
+        new AsyncGame().execute(mGame.getCodePath());
     }
 
     @Override
@@ -73,19 +60,37 @@ public class LiveGameFragment extends Fragment {
         return view;
     }
 
+    private class AsyncGame
+            extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String url = params[0];
+            return executeCommand(url);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            // do something with the result
+            Log.d(TAG, "************************* It finished!!! :) ***********************");
+            Log.d(TAG, result);
+        }
+    }
+
     public String executeCommand(String command) {
         /*
         *  Connects to a raspberry pi and runs the given command
         */
 
-        final String user = "ssh";
+        final String user = "pi";
         final String password = "raspberry";
         final String host = "10.1.10.18";
         final int port = 22;
 
         try {
-            Log.d(TAG, "*****Attempting to connect to Pi*****");
-
+            Log.d(TAG, "********************* Setting up Connection ************************");
             JSch jsch = new JSch();
             Session session = jsch.getSession(user, host, port);
             session.setPassword(password);
@@ -95,9 +100,11 @@ public class LiveGameFragment extends Fragment {
             prop.put("StrictHostKeyChecking", "no");
             session.setConfig(prop);
 
+            Log.d(TAG, "********************* Connecting Session ************************");
+
             session.connect();
 
-            mConnectionStatus.setText(R.string.connected);
+            Log.d(TAG, "********************* Session Connected ************************");
 
             // SSH Channel
             ChannelExec channelssh = (ChannelExec)
@@ -105,15 +112,20 @@ public class LiveGameFragment extends Fragment {
             baos = new ByteArrayOutputStream();
             channelssh.setOutputStream(baos);
 
+            Log.d(TAG, "********************* Running Command ************************");
+
             // Execute command
             channelssh.setCommand(command);
             channelssh.connect();
             channelssh.disconnect();
 
+            Log.d(TAG, "********************* Command Run ************************");
+
             return baos.toString();
         }
         catch(Exception e) {
-            Log.d(TAG, "*********************Connection Issues 1************************");
+            Log.d(TAG, "********************* Connection Issues!! ************************");
+            Log.d(TAG, e.toString());
             return "";
         }
     }
