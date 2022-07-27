@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/fragment_settings.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/list_item_game.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/list_item_result.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/list_item_setting.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/live_game.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/brenn/StudioProjects/Smart-Box-App/app/src/main/res/layout/results_fragment.xml" value="0.17980072463768115" />
