@@ -21,7 +21,7 @@
         <activity android:name=".GameSettingsActivity" />
         <activity android:name=".GameListActivity" />
         <activity android:name=".GameTypeActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".BoxActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation = "vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".BoxActivity">
 
     <TextView
         android:id="@+id/room_selection_prompt"

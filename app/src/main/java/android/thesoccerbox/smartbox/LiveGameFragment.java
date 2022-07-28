@@ -29,8 +29,8 @@ import static android.content.ContentValues.TAG;
 public class LiveGameFragment extends Fragment {
 
     private Game mGame;
+    private int[] scores = {0, 1, 0, 0, 0, 0, 0, 0};
 
-    private TextView mTitle;
     private TextView mConnectionStatus;
 
     private ByteArrayOutputStream baos;
@@ -53,8 +53,19 @@ public class LiveGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.live_game, container, false);
 
+        TextView mTitle;
+
         mTitle = view.findViewById(R.id.game_title);
         mTitle.setText(getString(R.string.game_title, mGame.getTitle()));
+
+        mTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Use mGame to send relevant information to the results page
+                Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId(), scores);
+                startActivity(intent);
+            }
+        });
 
         mConnectionStatus = view.findViewById(R.id.connection_status);
 
@@ -79,7 +90,7 @@ public class LiveGameFragment extends Fragment {
             Log.d(TAG, result);
 
             //Use mGame to send relevant information to the results page
-            Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId());
+            Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId(), scores);
             startActivity(intent);
         }
     }

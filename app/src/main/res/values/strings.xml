@@ -53,4 +53,6 @@
     <string name="room_two">Room 2</string>
     <string name="room_three">Room 3</string>
     <string name="room_four">Room 4</string>
+
+    <string name="room_title">Room %s</string>
 </resources>
