@@ -16,7 +16,8 @@ import static java.lang.String.valueOf;
 
 public class LiveGameActivity extends SingleFragmentActivity {
 
-    public static final String GAME_ID = "android.smart_box.live.game_id";
+    public static final String EXTRA_ROOMS = "android.smart_box.live.rooms";
+    public static final String EXTRA_GAME_ID = "android.smart_box.live.game_id";
 
     @Override
     protected Fragment createFragment() {
@@ -24,12 +25,13 @@ public class LiveGameActivity extends SingleFragmentActivity {
         return new LiveGameFragment();
     }
 
-    public static Intent newIntent(Context packageContext, UUID gameID) {
+    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID) {
         /*
          * This method can be used to create intents bound for this activity with the game ID
          */
         Intent intent = new Intent(packageContext, LiveGameActivity.class);
-        intent.putExtra(GAME_ID, gameID);
+        intent.putExtra(EXTRA_ROOMS, rooms);
+        intent.putExtra(EXTRA_GAME_ID, gameID);
         return intent;
     }
 

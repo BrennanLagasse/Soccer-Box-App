@@ -29,7 +29,8 @@ import static android.content.ContentValues.TAG;
 public class LiveGameFragment extends Fragment {
 
     private Game mGame;
-    private int[] scores = {0, 1, 0, 0, 0, 0, 0, 0};
+    private boolean[] mRooms;
+    private int[] mScores = {0, 1, 0, 0, 0, 0, 0, 0};
 
     private TextView mConnectionStatus;
 
@@ -41,8 +42,11 @@ public class LiveGameFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mRooms = getActivity().getIntent().getBooleanArrayExtra(LiveGameActivity.EXTRA_ROOMS);
+        Log.d(TAG, ("LGF Room 1: " + mRooms[0]));
+
         UUID gameId = (UUID) getActivity().getIntent()
-                .getSerializableExtra(LiveGameActivity.GAME_ID);
+                .getSerializableExtra(LiveGameActivity.EXTRA_GAME_ID);
         mGame = GameManager.get(getActivity()).getGame(gameId);
 
         new AsyncGame().execute(mGame.getCodePath());
@@ -62,7 +66,7 @@ public class LiveGameFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Use mGame to send relevant information to the results page
-                Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId(), scores);
+                Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
                 startActivity(intent);
             }
         });
@@ -90,7 +94,7 @@ public class LiveGameFragment extends Fragment {
             Log.d(TAG, result);
 
             //Use mGame to send relevant information to the results page
-            Intent intent = ResultsActivity.newIntent(getActivity(), mGame.getId(), scores);
+            Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
             startActivity(intent);
         }
     }

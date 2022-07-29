@@ -21,9 +21,10 @@ import static android.content.ContentValues.TAG;
 public class GameSettingsFragment extends Fragment {
 
     private Game mGame;
+    private boolean[] mRooms;
 
     private TextView mTitleView;
-    private Button mSynchButton;
+    private Button mSyncButton;
     private Button mStartButton;
 
     private View mGameNumberView;
@@ -53,6 +54,9 @@ public class GameSettingsFragment extends Fragment {
         UUID gameId = (UUID) getActivity().getIntent()
                 .getSerializableExtra(GameSettingsActivity.GAME_ID);
         mGame = GameManager.get(getActivity()).getGame(gameId);
+
+        mRooms = getActivity().getIntent().getBooleanArrayExtra(GameSettingsActivity.EXTRA_ROOMS);
+        Log.d(TAG, ("GSF Room 1: " + mRooms[0]));
     }
 
     @Override
@@ -198,29 +202,29 @@ public class GameSettingsFragment extends Fragment {
             });
         }
 
-        mSynchButton = view.findViewById(R.id.synchronous_button);
+        mSyncButton = view.findViewById(R.id.synchronous_button);
 
         // Set initial position and button enabled status based on if alternatives exist
         if(mGame.getSynch() && mGame.getAsynch()) {
-            mSynchButton.setEnabled(true);
-            mSynchButton.setText(getString(R.string.synchronous_status));
+            mSyncButton.setEnabled(true);
+            mSyncButton.setText(getString(R.string.synchronous_status));
         }
         else if(mGame.getSynch()) {
-            mSynchButton.setText(getString(R.string.synchronous_status));
+            mSyncButton.setText(getString(R.string.synchronous_status));
         }
         else if(mGame.getAsynch()) {
-            mSynchButton.setText(getString(R.string.asynchronous_status));
+            mSyncButton.setText(getString(R.string.asynchronous_status));
         }
 
         //Add event listener to change the status if the button is enabled
-        mSynchButton.setOnClickListener(new View.OnClickListener() {
+        mSyncButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mSynchButton.getText().equals(getString(R.string.synchronous_status))) {
-                    mSynchButton.setText(getString(R.string.asynchronous_status));
+                if(mSyncButton.getText().equals(getString(R.string.synchronous_status))) {
+                    mSyncButton.setText(getString(R.string.asynchronous_status));
                 }
                 else {
-                    mSynchButton.setText(getString(R.string.synchronous_status));
+                    mSyncButton.setText(getString(R.string.synchronous_status));
                 }
             }
         });
@@ -231,7 +235,7 @@ public class GameSettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Use mGame to send relevant information to the live page
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mGame.getId());
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId());
                 startActivity(intent);
             }
         });

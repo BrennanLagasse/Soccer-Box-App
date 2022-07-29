@@ -21,7 +21,9 @@ public class GameListFragment extends Fragment {
 
     private RecyclerView mGameRecyclerView;
     private GameAdapter mAdapter;
+
     private int mNumPlayers;
+    private boolean[] mRooms;
 
     private List<Game> mGameList;
 
@@ -32,8 +34,10 @@ public class GameListFragment extends Fragment {
 
         GameListActivity a = (GameListActivity) getActivity();
         mNumPlayers = a.getNumPlayers();
-
         Log.d(TAG, ("Num Players: " + mNumPlayers));
+
+        mRooms = getActivity().getIntent().getBooleanArrayExtra(GameListActivity.EXTRA_ROOMS);
+        Log.d(TAG, ("GLF Room 1: " + mRooms[0]));
 
         GameManager gameManager = GameManager.get(getActivity());
 
@@ -85,13 +89,13 @@ public class GameListFragment extends Fragment {
         public void onClick(View view) {
             //Determine next step based on number of players
             if(mNumPlayers == 1 || mNumPlayers == 2) {
-                // Send mGame to the settings page to determing list of games
-                Intent intent = GameSettingsActivity.newIntent(getActivity(), mGame.getId());
+                // Send mGame to the settings page to determine list of games
+                Intent intent = GameSettingsActivity.newIntent(getActivity(), mRooms, mGame.getId());
                 startActivity(intent);
             }
             else {
                 // Send mGame to the live page and start immediately
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mGame.getId());
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId());
                 startActivity(intent);
             }
 

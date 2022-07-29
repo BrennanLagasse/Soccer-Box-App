@@ -125,7 +125,10 @@ public class BoxFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GameTypeActivity.class);
+                //Use mGame to send relevant information to the results page
+                boolean[] rooms = {mRoomOneButton.isSelected(), mRoomTwoButton.isSelected(), mRoomThreeButton.isSelected(), mRoomFourButton.isSelected()};
+
+                Intent intent = GameTypeActivity.newIntent(getActivity(), rooms);
                 startActivity(intent);
             }
         });

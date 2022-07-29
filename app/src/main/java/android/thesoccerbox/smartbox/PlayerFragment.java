@@ -14,20 +14,24 @@ import static android.content.ContentValues.TAG;
 
 public class PlayerFragment extends Fragment {
 
-    Button mOnePlayerButton;
-    Button mTwoPlayerButton;
-    Button mTestButton;
+    private boolean[] mRooms;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "PlayerFragment created :)");
         super.onCreate(savedInstanceState);
+
+        mRooms = getActivity().getIntent().getBooleanArrayExtra(GameTypeActivity.EXTRA_ROOMS);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_players, container, false);
+
+        Button mOnePlayerButton;
+        Button mTwoPlayerButton;
+        Button mTestButton;
 
         mOnePlayerButton = v.findViewById(R.id.one_player_button);
         mTwoPlayerButton = v.findViewById(R.id.two_player_button);
@@ -38,7 +42,7 @@ public class PlayerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Going to GameList :)");
-                Intent intent = GameListActivity.newIntent(getActivity(), 1);
+                Intent intent = GameListActivity.newIntent(getActivity(), mRooms, 1);
                 startActivity(intent);
             }
         });
@@ -47,7 +51,7 @@ public class PlayerFragment extends Fragment {
         mTwoPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = GameListActivity.newIntent(getActivity(), 2);
+                Intent intent = GameListActivity.newIntent(getActivity(), mRooms, 2);
                 startActivity(intent);
             }
         });
@@ -56,7 +60,7 @@ public class PlayerFragment extends Fragment {
         mTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = GameListActivity.newIntent(getActivity(), 0);
+                Intent intent = GameListActivity.newIntent(getActivity(), mRooms, 0);
                 startActivity(intent);
             }
         });

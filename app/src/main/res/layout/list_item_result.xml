@@ -12,33 +12,13 @@
         android:textSize="20sp"
         android:text="" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/scores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/score_p1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
-            android:layout_marginEnd="30sp"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/score_p2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
-            android:layout_marginEnd="30sp"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:text=""/>
-
-    </LinearLayout>
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="" />
 
     <View
         android:layout_width="match_parent"

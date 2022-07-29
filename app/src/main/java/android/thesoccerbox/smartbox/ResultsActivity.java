@@ -15,6 +15,7 @@ import java.util.UUID;
 
 public class ResultsActivity extends SingleFragmentActivity {
 
+    public static final String EXTRA_ROOMS = "android.smart_box.results.rooms";
     public static final String GAME_ID = "android.smart_box.results.game_id";
     public static final String SCORES = "android.smart_box.results.scores";
 
@@ -24,11 +25,10 @@ public class ResultsActivity extends SingleFragmentActivity {
         return new ResultsFragment();
     }
 
-    public static Intent newIntent(Context packageContext, UUID gameID, int[] scores) {
-        /*
-         * This method can be used to create intents bound for this activity with the game ID
-         */
+    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID, int[] scores) {
+        /* Creates intent bound for this activity with rooms, game ID, and scores */
         Intent intent = new Intent(packageContext, ResultsActivity.class);
+        intent.putExtra(EXTRA_ROOMS, rooms);
         intent.putExtra(GAME_ID, gameID);
         intent.putExtra(SCORES, scores);
         return intent;
