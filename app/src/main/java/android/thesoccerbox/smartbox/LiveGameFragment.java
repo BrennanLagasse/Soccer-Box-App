@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 
@@ -30,7 +31,7 @@ public class LiveGameFragment extends Fragment {
 
     private Game mGame;
     private boolean[] mRooms;
-    private int[] mScores = {0, 1, 0, 0, 0, 0, 0, 0};
+    private int[] mScores;
 
     private TextView mConnectionStatus;
 
@@ -46,6 +47,8 @@ public class LiveGameFragment extends Fragment {
         UUID gameId = (UUID) getActivity().getIntent()
                 .getSerializableExtra(LiveGameActivity.EXTRA_GAME_ID);
         mGame = GameManager.get(getActivity()).getGame(gameId);
+
+        mScores = new int[mRooms.length * mGame.getNumPlayers()];
 
         new AsyncGame().execute(mGame.getCodePath());
     }
@@ -136,8 +139,33 @@ public class LiveGameFragment extends Fragment {
             channelssh.setCommand(command);
             channelssh.connect();
 
+            // Listen for score updates until end command is send
             while(!baos.toString().contains("END")) {
                 try{
+                    // Experimental code for searching through baos for information
+                    Scanner scan = new Scanner(baos.toString());
+
+                    // Sift through other input
+                    while (scan.hasNextLine()) {
+                        String line = scan.nextLine();
+
+                        if(line.equals("END")) {
+                            Log.d(TAG, "************* LOOP FAILURE WITH END **************");
+                        }
+                        else if(line.charAt(0) == 's') {
+                            // Update score
+                            Log.d(TAG, "************* Update score **************");
+                            int room = Integer.parseInt(line.substring(2,3));
+                            int player = Integer.parseInt(line.substring(4,5));
+                            mScores[room*2+player] = Integer.parseInt(line.substring(6));
+                        }
+
+                    }
+                    scan.close();
+
+                    baos.reset();
+
+                    // Take a quick break
                     Thread.sleep(100);
                 }
                 catch(Exception ee){

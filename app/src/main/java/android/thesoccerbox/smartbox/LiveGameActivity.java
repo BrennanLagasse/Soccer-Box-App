@@ -26,9 +26,7 @@ public class LiveGameActivity extends SingleFragmentActivity {
     }
 
     public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID) {
-        /*
-         * This method can be used to create intents bound for this activity with the game ID
-         */
+        /* This method can be used to create intents bound for this activity with the game ID */
         Intent intent = new Intent(packageContext, LiveGameActivity.class);
         intent.putExtra(EXTRA_ROOMS, rooms);
         intent.putExtra(EXTRA_GAME_ID, gameID);
