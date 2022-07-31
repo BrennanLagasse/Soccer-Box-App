@@ -34,8 +34,6 @@ public class LiveGameFragment extends Fragment {
 
     private TextView mConnectionStatus;
 
-    private ByteArrayOutputStream baos;
-
     protected String results;
 
     @Override
@@ -129,7 +127,7 @@ public class LiveGameFragment extends Fragment {
             // SSH Channel
             ChannelExec channelssh = (ChannelExec)
                     session.openChannel("exec");
-            baos = new ByteArrayOutputStream();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
             channelssh.setOutputStream(baos);
 
             Log.d(TAG, "********************* Running Command ************************");
@@ -137,11 +135,24 @@ public class LiveGameFragment extends Fragment {
             // Execute command
             channelssh.setCommand(command);
             channelssh.connect();
+
+            while(!baos.toString().contains("END")) {
+                try{
+                    Thread.sleep(100);
+                }
+                catch(Exception ee){
+                    Log.d(TAG, "**********************Issue Sleeping************************");
+                }
+            }
+
             channelssh.disconnect();
 
-            Log.d(TAG, "********************* Command Run ************************");
+            Log.d(TAG, "********************* Command Ran ************************");
 
-            return baos.toString();
+            String output = baos.toString();
+
+            Log.d(TAG, ("Output: " + output));
+            return output;
         }
         catch(Exception e) {
             Log.d(TAG, "********************* Connection Issues!! ************************");

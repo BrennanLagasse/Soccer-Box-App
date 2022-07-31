@@ -111,6 +111,7 @@ public class ResultsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // Alert the user that the shutdown sequence started
+                Log.d(TAG, "************************* Shutdown Button ***********************");
                 Toast.makeText(getActivity(), "Shutting Down", Toast.LENGTH_SHORT).show();
 
                 // Send the shutdown command
@@ -126,7 +127,7 @@ public class ResultsFragment extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-            String url = params[0];
+            Log.d(TAG, "************************* Starting Shutdown ***********************");
             return executeShutdown();
         }
 
