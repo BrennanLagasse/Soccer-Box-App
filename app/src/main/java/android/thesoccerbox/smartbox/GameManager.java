@@ -58,21 +58,68 @@ public class GameManager {
                 "1p_color_find.py"));
 
         // Two Player Games
-        mTwoPlayerGames.add(new Game("Standard Simultaneous", "One target for each player, targets are unlinked", 2, false, true, "2p_standard_sync"));
-        mTwoPlayerGames.add(new Game("Standard Competitive", "One target for each player, targets are reset after either target is hit", 2, true, false, "2p_standard_async"));
-        mTwoPlayerGames.add(new Game("Standard Next", "One target for each player, next targets are indicated", 2, true, true, "???"));
-        mTwoPlayerGames.add(new Game("Standard Color", "All targets lit, each player must hit their color", 2, true, false, "???"));
-        mTwoPlayerGames.add(new Game("Double Tap Standard", "One target for each player that must be hit twice", 2, true, true, "???"));
-        mTwoPlayerGames.add(new Game("Two Targets Standard", "Two targets for each player, either must be hit", 2, true, true, "???"));
-        mTwoPlayerGames.add(new Game("Both Targets Standard", "Two targets for each player, both must be hit", 2, true, true, "???"));
-        mTwoPlayerGames.add(new Game("Three Goal Game First", "Each player must hit the opposing three targets once", 2, false, false, "???"));
-        mTwoPlayerGames.add(new Game("Three Goal Game Timed", "Each player must hit the opposing three targets", 2, false, false, "???"));
-        mTwoPlayerGames.add(new Game("1v1", "One target for each player that changes after a set interval", 2, true, false, "???"));
+        mTwoPlayerGames.add(new Game("Standard Simultaneous",
+                "One target for each player, targets are unlinked",
+                2, false, true,
+                "2p_standard_sync"));
+        mTwoPlayerGames.add(new Game("Standard Competitive",
+                "One target for each player, targets are reset after either target is hit",
+                2, true, false,
+                "2p_standard_async"));
+        // !! TWO FORMS !!
+        mTwoPlayerGames.add(new Game("Standard Next",
+                "One target for each player, next targets are indicated",
+                2, true, true,
+                "???"));
+        // !! NOT FOUND !!
+        mTwoPlayerGames.add(new Game("Standard Color",
+                "All targets lit, each player must hit their color",
+                2, true, false,
+                "???"));
+        // !! TWO FORMS !!
+        mTwoPlayerGames.add(new Game("Double Tap Standard",
+                "One target for each player that must be hit twice",
+                2, true, true,
+                "???"));
+        // !! TWO FORMS !!
+        mTwoPlayerGames.add(new Game("Two Targets Standard",
+                "Two targets for each player, either must be hit",
+                2, true, true,
+                "???"));
+        // !! TWO FORMS !!
+        mTwoPlayerGames.add(new Game("Both Targets Standard",
+                "Two targets for each player, both must be hit",
+                2, true, true,
+                "???"));
+        mTwoPlayerGames.add(new Game("Three Goal Game First",
+                "Each player must hit the opposing three targets once",
+                2, false, false,
+                "2p_three_goals_first.py"));
+        mTwoPlayerGames.add(new Game("Three Goal Game Timed",
+                "Each player must hit the opposing three targets",
+                2, false, false,
+                "2p_three_goals_max.py"));
+        // !! NOT FOUND !!
+        mTwoPlayerGames.add(new Game("1v1",
+                "One target for each player that changes after a set interval",
+                2, true, false,
+                "???"));
 
         // Tests
-        mTestGames.add(new Game("LED Test", "Lights up all LEDs one target at a time", 0, false, false, "light_test.py"));
-        mTestGames.add(new Game("Scoreboard Test", "Displays score on screen", 0, false, false,  "???"));
-        mTestGames.add(new Game("Speaker Test", "Cycles through all game sounds", 0, false, false,  "1p_standard.py 1 0 2 60"));
+        mTestGames.add(new Game("LED Test",
+                "Lights up all LEDs one target at a time",
+                0, false, false,
+                "light_test.py"));
+        // !! NOT FOUND !!
+        mTestGames.add(new Game("Scoreboard Test",
+                "Displays score on screen",
+                0, false, false,
+                "???"));
+        // !! NOT FOUND !!
+        mTestGames.add(new Game("Speaker Test",
+                "Cycles through all game sounds",
+                0, false, false,
+                "1p_standard.py 1 0 2 60"));
 
     }
 
