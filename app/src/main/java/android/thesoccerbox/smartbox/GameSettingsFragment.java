@@ -235,7 +235,7 @@ public class GameSettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Use mGame to send relevant information to the live page
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId());
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId(), Integer.parseInt(mValue4.getText().toString()), Integer.parseInt(mValue2.getText().toString()));
                 startActivity(intent);
             }
         });

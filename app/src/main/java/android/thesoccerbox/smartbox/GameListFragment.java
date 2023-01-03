@@ -95,7 +95,7 @@ public class GameListFragment extends Fragment {
             }
             else {
                 // Send mGame to the live page and start immediately
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId());
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId(), 0, 0);
                 startActivity(intent);
             }
 
