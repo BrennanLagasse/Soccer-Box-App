@@ -14,16 +14,31 @@ public class Game {
     private final String mTitle;
     private final String mDescription;
     private final String mCodePath;
+    private final String mAsyncCodePath;
     private final int mNumPlayers;
     private final boolean mSynchOption;
     private final boolean mAsynchOption;
 
+    // Default Constructor
     public Game(String title, String description, int numPlayers, boolean synch, boolean asynch, String file_name) {
         mId = UUID.randomUUID();
         mTitle = title;
         mDescription = description;
         mNumPlayers = numPlayers;
         mCodePath = FILE_PREFIX + file_name;
+        mAsyncCodePath = "";
+        mSynchOption = synch;
+        mAsynchOption = asynch;
+    }
+
+    // Alternate Constructor
+    public Game(String title, String description, int numPlayers, boolean synch, boolean asynch, String file_name, String async_file_name) {
+        mId = UUID.randomUUID();
+        mTitle = title;
+        mDescription = description;
+        mNumPlayers = numPlayers;
+        mCodePath = FILE_PREFIX + file_name;
+        mAsyncCodePath = FILE_PREFIX + async_file_name;
         mSynchOption = synch;
         mAsynchOption = asynch;
     }

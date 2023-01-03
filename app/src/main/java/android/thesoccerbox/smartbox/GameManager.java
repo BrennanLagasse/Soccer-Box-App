@@ -66,31 +66,31 @@ public class GameManager {
                 "One target for each player, targets are reset after either target is hit",
                 2, true, false,
                 "2p_standard_async"));
-        // !! TWO FORMS !!
         mTwoPlayerGames.add(new Game("Standard Next",
                 "One target for each player, next targets are indicated",
                 2, true, true,
-                "???"));
+                "2p_standard_next_sync.py",
+                "2p_standard_next_async.py"));
         // !! NOT FOUND !!
         mTwoPlayerGames.add(new Game("Standard Color",
                 "All targets lit, each player must hit their color",
                 2, true, false,
                 "???"));
-        // !! TWO FORMS !!
+        // !! NOT FOUND !!
         mTwoPlayerGames.add(new Game("Double Tap Standard",
                 "One target for each player that must be hit twice",
                 2, true, true,
                 "???"));
-        // !! TWO FORMS !!
         mTwoPlayerGames.add(new Game("Two Targets Standard",
                 "Two targets for each player, either must be hit",
                 2, true, true,
-                "???"));
-        // !! TWO FORMS !!
+                "2p_two_targets_sync.py",
+                "2p_two_targets_async.py"));
         mTwoPlayerGames.add(new Game("Both Targets Standard",
                 "Two targets for each player, both must be hit",
                 2, true, true,
-                "???"));
+                "2p_both_targets_sync.py",
+                "2p_both_targets_async.py"));
         mTwoPlayerGames.add(new Game("Three Goal Game First",
                 "Each player must hit the opposing three targets once",
                 2, false, false,
