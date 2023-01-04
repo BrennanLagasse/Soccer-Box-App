@@ -234,8 +234,15 @@ public class GameSettingsFragment extends Fragment {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Determine if the alternate code path is needed for games with async and sync options
+                boolean mDefault = true;
+
+                if(mGame.getSynch() && mGame.getAsynch() && mSyncButton.getText().equals(getString(R.string.asynchronous_status))) {
+                    mDefault = false;
+                }
+
                 //Use mGame to send relevant information to the live page
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId(), Integer.parseInt(mValue4.getText().toString()), Integer.parseInt(mValue2.getText().toString()));
+                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId(), Integer.parseInt(mValue4.getText().toString()), Integer.parseInt(mValue2.getText().toString()), mDefault);
                 startActivity(intent);
             }
         });

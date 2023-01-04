@@ -36,6 +36,7 @@ public class LiveGameFragment extends Fragment {
     private int[] mRoomNums;
     private int mTargetTime;
     private int mGameTime;
+    private boolean mDefaultPath;
     private int[] mScores;
 
     private TextView mConnectionStatus;
@@ -78,12 +79,23 @@ public class LiveGameFragment extends Fragment {
         mTargetTime = (int) getActivity().getIntent().getDoubleExtra(LiveGameActivity.EXTRA_TARGET_TIME, 5);
         mGameTime = (int) getActivity().getIntent().getDoubleExtra(LiveGameActivity.EXTRA_GAME_TIME, 60);
 
+        // Get which path the code uses
+        mDefaultPath = getActivity().getIntent().getBooleanExtra(LiveGameActivity.EXTRA_PATH, true);
+
         // Create new variable to store the scores
         mScores = new int[mRooms.length * mGame.getNumPlayers()];
 
         // Create a function call to the selected game with command line arguments
         // Arguments: Num Rooms, array of room numbers, target time, game time
-        String command = mGame.getCodePath();
+        String command;
+
+        if (mDefaultPath) {
+            command = mGame.getCodePath();
+        }
+        else {
+            command = mGame.getAsyncCodePath();
+        }
+
         command = command.concat(" " + mRoomNums.length);
         for(int room : mRoomNums) {
             command = command.concat(" " + room);

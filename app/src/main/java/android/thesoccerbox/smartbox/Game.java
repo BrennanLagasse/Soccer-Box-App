@@ -56,6 +56,7 @@ public class Game {
     public String getCodePath() {
         return mCodePath;
     }
+    public String getAsyncCodePath() { return mAsyncCodePath; }
     public boolean getSynch() { return mSynchOption; }
     public boolean getAsynch() { return mAsynchOption; }
 }

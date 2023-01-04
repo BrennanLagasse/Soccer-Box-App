@@ -20,6 +20,7 @@ public class LiveGameActivity extends SingleFragmentActivity {
     public static final String EXTRA_GAME_ID = "android.smart_box.live.game_id";
     public static final String EXTRA_TARGET_TIME = "android.smart_box.live.target_time";
     public static final String EXTRA_GAME_TIME = "android.smart_box.live.game_time";
+    public static final String EXTRA_PATH = "android.smart_box.live.path";
 
     @Override
     protected Fragment createFragment() {
@@ -27,13 +28,14 @@ public class LiveGameActivity extends SingleFragmentActivity {
         return new LiveGameFragment();
     }
 
-    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID, double targetTime, double gameTime) {
+    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID, double targetTime, double gameTime, boolean defaultPath) {
         /* This method can be used to create intents bound for this activity with the game ID */
         Intent intent = new Intent(packageContext, LiveGameActivity.class);
         intent.putExtra(EXTRA_ROOMS, rooms);
         intent.putExtra(EXTRA_GAME_ID, gameID);
         intent.putExtra(EXTRA_TARGET_TIME, targetTime);
         intent.putExtra(EXTRA_GAME_TIME, gameTime);
+        intent.putExtra(EXTRA_PATH, defaultPath);
         return intent;
     }
 
