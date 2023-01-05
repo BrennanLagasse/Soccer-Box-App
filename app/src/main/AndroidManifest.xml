@@ -17,6 +17,7 @@
         <activity
             android:name=".ResultsActivity.java"
             android:exported="false" />
+        <activity android:name=".ConnectionErrorActivity" />
         <activity android:name=".LiveGameActivity" />
         <activity android:name=".GameSettingsActivity" />
         <activity android:name=".GameListActivity" />

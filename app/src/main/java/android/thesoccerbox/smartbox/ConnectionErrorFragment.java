@@ -29,19 +29,19 @@ public class ConnectionErrorFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         // Collect all the raw data from the intent (no processing)
-        mRooms = getActivity().getIntent().getBooleanArrayExtra(LiveGameActivity.EXTRA_ROOMS);
+        mRooms = getActivity().getIntent().getBooleanArrayExtra(ConnectionErrorActivity.EXTRA_ROOMS);
         mGameId = (UUID) getActivity().getIntent()
-                .getSerializableExtra(LiveGameActivity.EXTRA_GAME_ID);
-        mTargetTime = getActivity().getIntent().getDoubleExtra(LiveGameActivity.EXTRA_TARGET_TIME, 5);
-        mGameTime = getActivity().getIntent().getDoubleExtra(LiveGameActivity.EXTRA_GAME_TIME, 60);
-        mDefaultPath = getActivity().getIntent().getBooleanExtra(LiveGameActivity.EXTRA_PATH, true);
+                .getSerializableExtra(ConnectionErrorActivity.EXTRA_GAME_ID);
+        mTargetTime = getActivity().getIntent().getDoubleExtra(ConnectionErrorActivity.EXTRA_TARGET_TIME, 5);
+        mGameTime = getActivity().getIntent().getDoubleExtra(ConnectionErrorActivity.EXTRA_GAME_TIME, 60);
+        mDefaultPath = getActivity().getIntent().getBooleanExtra(ConnectionErrorActivity.EXTRA_PATH, true);
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_boxes, container, false);
+        View v = inflater.inflate(R.layout.fragment_error, container, false);
 
         mReconnectButton = v.findViewById(R.id.reconnect_button);
 

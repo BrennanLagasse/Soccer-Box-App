@@ -155,7 +155,10 @@ public class LiveGameFragment extends Fragment {
             // Decide which page to go to based on results
 
             if (result.equals(CONNECTION_ERROR)) {
-                // PI disconnected, alter user
+                // PI disconnected, alert user and go to disconnect page
+                Intent intent = ConnectionErrorActivity.newIntent(
+                        getActivity(), mRooms, mGame.getId(), mTargetTime, mGameTime, mDefaultPath);
+                startActivity(intent);
             }
             else {
                 // The game ends as expected, use mGame to send relevant information to the results page
