@@ -39,6 +39,8 @@ public class LiveGameFragment extends Fragment {
     private boolean mDefaultPath;
     private int[] mScores;
 
+    private String CONNECTION_ERROR = "CONNECTION ERROR";
+
     private TextView mConnectionStatus;
 
     protected String results;
@@ -150,9 +152,17 @@ public class LiveGameFragment extends Fragment {
             Log.d(TAG, "************************* It finished!!! :) ***********************");
             Log.d(TAG, result);
 
-            //Use mGame to send relevant information to the results page
-            Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
-            startActivity(intent);
+            // Decide which page to go to based on results
+
+            if (result.equals(CONNECTION_ERROR)) {
+                // PI disconnected, alter user
+            }
+            else {
+                // The game ends as expected, use mGame to send relevant information to the results page
+                Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
+                startActivity(intent);
+            }
+
         }
     }
 
@@ -276,7 +286,7 @@ public class LiveGameFragment extends Fragment {
         catch(Exception e) {
             Log.d(TAG, "********************* Connection Issues!! ************************");
             Log.d(TAG, e.toString());
-            return "";
+            return CONNECTION_ERROR;
         }
     }
 }

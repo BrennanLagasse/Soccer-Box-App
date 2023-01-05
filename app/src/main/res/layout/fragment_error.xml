@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:gravity="center"
+    tools:context=".BoxActivity">
+
+    <TextView
+        android:id="@+id/connection_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:text="@string/connection_error" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_sync_problem_256" />
+
+    <TextView
+        android:id="@+id/connection_error_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:text="@string/connection_error_help" />
+
+    <Button
+        android:id="@+id/reconnect_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop = "30dp"
+        android:textSize="30sp"
+        android:text="@string/connection_error_retry" />
+
+</LinearLayout>

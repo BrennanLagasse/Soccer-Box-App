@@ -55,4 +55,8 @@
     <string name="room_four">Room 4</string>
 
     <string name="room_title">Room %s</string>
+
+    <string name="connection_error">Connection Error</string>
+    <string name="connection_error_help">Ensure the Pi is on and Wifi is connected</string>
+    <string name="connection_error_retry">Try Again</string>
 </resources>
