@@ -153,7 +153,6 @@ public class LiveGameFragment extends Fragment {
             Log.d(TAG, result);
 
             // Decide which page to go to based on results
-
             if (result.equals(CONNECTION_ERROR)) {
                 // PI disconnected, alert user and go to disconnect page
                 Intent intent = ConnectionErrorActivity.newIntent(
@@ -161,6 +160,30 @@ public class LiveGameFragment extends Fragment {
                 startActivity(intent);
             }
             else {
+                // Pull Scores
+                Scanner scan = new Scanner(result);
+
+                // Sift through other input
+                while (scan.hasNextLine()) {
+
+                    String line = scan.nextLine();
+                    Log.d(TAG, line);
+
+                    if(line.charAt(0) == 's') {
+                        // Update score
+                        int room = Integer.parseInt(line.substring(2,3));
+                        int player = Integer.parseInt(line.substring(4,5));
+                        mScores[room*2+player] = Integer.parseInt(line.substring(6));
+                    }
+                }
+
+                // Log scores
+                Log.d(TAG, "***** Recorded Scores:");
+                for(int s : mScores) {
+                    Log.d(TAG, Integer.toString(s));
+                }
+                Log.d(TAG, "***** End of Scores:");
+
                 // The game ends as expected, use mGame to send relevant information to the results page
                 Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
                 startActivity(intent);
@@ -224,7 +247,7 @@ public class LiveGameFragment extends Fragment {
                     Log.d(TAG, line);
 
 
-                    if(line.substring(0,1).equals("s")) {
+                    if(line.charAt(0) == 's') {
                         // Update score
                         Log.d(TAG, "************* Update score **************");
                         int room = Integer.parseInt(line.substring(2,3));
