@@ -224,42 +224,6 @@ public class LiveGameFragment extends Fragment {
                     Log.d(TAG, line);
 
 
-                    if(line.contains("Number of Rooms")) {
-                        Log.d(TAG, "Adding parameters");
-                        // Fix later
-                        String input = "1\n";
-                        channelssh.getOutputStream().write(input.getBytes());
-                        channelssh.getOutputStream().flush();
-                        System.out.println(input);
-
-                        // baos.write(String.valueOf(mRoomNums.length).getBytes(StandardCharsets.UTF_8));
-                        // channelssh.setCommand(String.valueOf(mRoomNums.length));
-                        // channelssh.sendSignal(String.valueOf(mRoomNums.length));
-                        // out.write(String.valueOf(mRoomNums.length).getBytes());
-                    }
-                    /**
-                    else if(line.contains("Room")) {
-                        Log.d(TAG, "Adding parameters");
-                        if(line.contains("0")) {
-                            channelssh.setCommand(String.valueOf(mRoomNums[0]));
-                        }
-                        else if(line.contains("1")) {
-                            channelssh.setCommand(String.valueOf(mRoomNums[1]));
-                        }
-                        else if(line.contains("2")) {
-                            channelssh.setCommand(String.valueOf(mRoomNums[2]));
-                        }
-                        else if(line.contains("3")) {
-                            channelssh.setCommand(String.valueOf(mRoomNums[3]));
-                        }
-                    }
-                    else if(line.contains("Target Time:")) {
-                        channelssh.setCommand(String.valueOf(mTargetTime));
-                    }
-                    else if(line.contains("Game Time:")) {
-                        channelssh.setCommand(String.valueOf(mGameTime));
-                    }
-                    */
                     if(line.substring(0,1).equals("s")) {
                         // Update score
                         Log.d(TAG, "************* Update score **************");
