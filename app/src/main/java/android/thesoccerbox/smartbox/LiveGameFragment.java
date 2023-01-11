@@ -191,8 +191,25 @@ public class LiveGameFragment extends Fragment {
                 Log.d(TAG, "***** End of Scores:");
 
                 // The game ends as expected, use mGame to send relevant information to the results page
-                Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
-                startActivity(intent);
+                if(mNumGames <= 1) {
+                    // Last game, go to final results page
+                    Intent intent = ResultsActivity.newIntent(getActivity(), mRooms, mGame.getId(), mScores);
+                    startActivity(intent);
+                }
+                else {
+                    // At least one more game, go to intermediate results page
+                    Intent intent = ResultsIntermediateActivity.newIntent(
+                            getActivity(),
+                            mRooms,
+                            mGame.getId(),
+                            mTargetTime,
+                            mGameTime,
+                            mDefaultPath,
+                            mNumGames,
+                            mDelayBetweenGames,
+                            mScores);
+                    startActivity(intent);
+                }
             }
 
         }
