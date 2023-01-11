@@ -37,6 +37,8 @@ public class LiveGameFragment extends Fragment {
     private int mTargetTime;
     private int mGameTime;
     private boolean mDefaultPath;
+    private int mNumGames;
+    private int mDelayBetweenGames;
     private int[] mScores;
 
     private String CONNECTION_ERROR = "CONNECTION ERROR";
@@ -83,6 +85,10 @@ public class LiveGameFragment extends Fragment {
 
         // Get which path the code uses
         mDefaultPath = getActivity().getIntent().getBooleanExtra(LiveGameActivity.EXTRA_PATH, true);
+
+        // Get the information about the number of games
+        mNumGames = getActivity().getIntent().getIntExtra(LiveGameActivity.EXTRA_NUM_GAMES, 1);
+        mDelayBetweenGames = getActivity().getIntent().getIntExtra(LiveGameActivity.EXTRA_DELAY_BETWEEN_GAMES, 90);
 
         // Create new variable to store the scores
         mScores = new int[mRooms.length * mGame.getNumPlayers()];
@@ -156,7 +162,7 @@ public class LiveGameFragment extends Fragment {
             if (result.equals(CONNECTION_ERROR)) {
                 // PI disconnected, alert user and go to disconnect page
                 Intent intent = ConnectionErrorActivity.newIntent(
-                        getActivity(), mRooms, mGame.getId(), mTargetTime, mGameTime, mDefaultPath);
+                        getActivity(), mRooms, mGame.getId(), mTargetTime, mGameTime, mDefaultPath, mNumGames, mDelayBetweenGames);
                 startActivity(intent);
             }
             else {

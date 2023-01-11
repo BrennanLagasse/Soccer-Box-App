@@ -21,6 +21,9 @@ public class LiveGameActivity extends SingleFragmentActivity {
     public static final String EXTRA_TARGET_TIME = "android.smart_box.live.target_time";
     public static final String EXTRA_GAME_TIME = "android.smart_box.live.game_time";
     public static final String EXTRA_PATH = "android.smart_box.live.path";
+    public static final String EXTRA_NUM_GAMES = "android.smart_box.live.num_games";
+    public static final String EXTRA_DELAY_BETWEEN_GAMES = "android.smart_box.live.delay_between_games";
+
 
     @Override
     protected Fragment createFragment() {
@@ -28,7 +31,8 @@ public class LiveGameActivity extends SingleFragmentActivity {
         return new LiveGameFragment();
     }
 
-    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID, double targetTime, double gameTime, boolean defaultPath) {
+    public static Intent newIntent(Context packageContext, boolean[] rooms, UUID gameID, double targetTime,
+                                   double gameTime, boolean defaultPath, int numGames, int delayBetweenGames) {
         /* This method can be used to create intents bound for this activity with the game ID */
         Intent intent = new Intent(packageContext, LiveGameActivity.class);
         intent.putExtra(EXTRA_ROOMS, rooms);
@@ -36,6 +40,8 @@ public class LiveGameActivity extends SingleFragmentActivity {
         intent.putExtra(EXTRA_TARGET_TIME, targetTime);
         intent.putExtra(EXTRA_GAME_TIME, gameTime);
         intent.putExtra(EXTRA_PATH, defaultPath);
+        intent.putExtra(EXTRA_NUM_GAMES, numGames);
+        intent.putExtra(EXTRA_DELAY_BETWEEN_GAMES, delayBetweenGames);
         return intent;
     }
 

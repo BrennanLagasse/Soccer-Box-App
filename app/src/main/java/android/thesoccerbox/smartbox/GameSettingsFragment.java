@@ -242,7 +242,15 @@ public class GameSettingsFragment extends Fragment {
                 }
 
                 //Use mGame to send relevant information to the live page
-                Intent intent = LiveGameActivity.newIntent(getActivity(), mRooms, mGame.getId(), Integer.parseInt(mValue4.getText().toString()), Integer.parseInt(mValue2.getText().toString()), mDefault);
+                Intent intent = LiveGameActivity.newIntent(
+                        getActivity(),
+                        mRooms,
+                        mGame.getId(),
+                        Integer.parseInt(mValue4.getText().toString()),
+                        Integer.parseInt(mValue2.getText().toString()),
+                        mDefault,
+                        Integer.parseInt(mValue1.getText().toString()),
+                        Integer.parseInt(mValue3.getText().toString()));
                 startActivity(intent);
             }
         });
