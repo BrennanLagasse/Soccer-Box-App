@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 
 import java.util.UUID;
 
+import android.os.CountDownTimer;
+
 public class ConnectionErrorFragment extends Fragment {
 
     private Button mReconnectButton;
@@ -44,6 +46,19 @@ public class ConnectionErrorFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_error, container, false);
 
         mReconnectButton = v.findViewById(R.id.reconnect_button);
+
+        mReconnectButton.setEnabled(false);
+
+        // Set a timer before reconnect is available again
+        new CountDownTimer(5000, 1000){
+            public void onTick(long millisUntilFinished){
+                mReconnectButton.setText(String.valueOf("Retry in " + millisUntilFinished / 1000 + "s"));
+            }
+            public void onFinish(){
+                mReconnectButton.setText(R.string.connection_error_retry);
+                mReconnectButton.setEnabled(true);
+            }
+        }.start();
 
         // Change status of button 1 when selected
         mReconnectButton.setOnClickListener(new View.OnClickListener() {
