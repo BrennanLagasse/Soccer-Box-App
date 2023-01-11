@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartBox" >
-        <activity
-            android:name=".ResultsActivity"
-            android:exported="false" />
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".ResultsIntermediateActivity" />
         <activity android:name=".ConnectionErrorActivity" />
         <activity android:name=".LiveGameActivity" />
         <activity android:name=".GameSettingsActivity" />

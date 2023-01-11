@@ -59,4 +59,6 @@
     <string name="connection_error">Connection Error</string>
     <string name="connection_error_help">Ensure the Pi is on and Wifi is connected</string>
     <string name="connection_error_retry">Try Again</string>
+
+    <string name="next_game_timer">Until Next Game</string>
 </resources>
