@@ -122,8 +122,6 @@ public class LiveGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.live_game, container, false);
 
-        Log.d(TAG, "***TT Live: " + mTargetTime);
-
         TextView mTitle;
 
         mTitle = view.findViewById(R.id.game_title);
