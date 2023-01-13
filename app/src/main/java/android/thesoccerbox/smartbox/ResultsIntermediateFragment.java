@@ -21,8 +21,8 @@ public class ResultsIntermediateFragment extends Fragment {
 
     private boolean[] mRooms;
     private Game mGame;
-    private int mTargetTime;
-    private int mGameTime;
+    private double mTargetTime;
+    private double mGameTime;
     private boolean mPath;
     private int mNumGames;
     private int mDelayBetweenGames;
@@ -39,8 +39,8 @@ public class ResultsIntermediateFragment extends Fragment {
                 .getSerializableExtra(ResultsIntermediateActivity.EXTRA_GAME_ID);
         mGame = GameManager.get(getActivity()).getGame(gameId);
 
-        mTargetTime = getActivity().getIntent().getIntExtra(ResultsIntermediateActivity.EXTRA_TARGET_TIME, 5);
-        mGameTime = getActivity().getIntent().getIntExtra(ResultsIntermediateActivity.EXTRA_GAME_TIME, 60);
+        mTargetTime = getActivity().getIntent().getDoubleExtra(ResultsIntermediateActivity.EXTRA_TARGET_TIME, 5);
+        mGameTime = getActivity().getIntent().getDoubleExtra(ResultsIntermediateActivity.EXTRA_GAME_TIME, 60);
         mPath = getActivity().getIntent().getBooleanExtra(ResultsIntermediateActivity.EXTRA_PATH, false);
         mNumGames = getActivity().getIntent().getIntExtra(ResultsIntermediateActivity.EXTRA_NUM_GAMES, 2);
         mDelayBetweenGames = getActivity().getIntent().getIntExtra(ResultsIntermediateActivity.EXTRA_DELAY_BETWEEN_GAMES, 90);
@@ -54,6 +54,8 @@ public class ResultsIntermediateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.results_fragment_intermediate, container, false);
+
+        Log.d(TAG, "***TT Results: " + mTargetTime);
 
         // Set up time until next game
         TextView nextGameDelay = view.findViewById(R.id.next_game_time);

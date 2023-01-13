@@ -122,6 +122,8 @@ public class LiveGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.live_game, container, false);
 
+        Log.d(TAG, "***TT Live: " + mTargetTime);
+
         TextView mTitle;
 
         mTitle = view.findViewById(R.id.game_title);
@@ -162,7 +164,14 @@ public class LiveGameFragment extends Fragment {
             if (result.equals(CONNECTION_ERROR)) {
                 // PI disconnected, alert user and go to disconnect page
                 Intent intent = ConnectionErrorActivity.newIntent(
-                        getActivity(), mRooms, mGame.getId(), mTargetTime, mGameTime, mDefaultPath, mNumGames, mDelayBetweenGames);
+                        getActivity(),
+                        mRooms,
+                        mGame.getId(),
+                        mTargetTime,
+                        mGameTime,
+                        mDefaultPath,
+                        mNumGames,
+                        mDelayBetweenGames);
                 startActivity(intent);
             }
             else {
