@@ -1,2 +1,2 @@
 # Smart-Box-App
-App for selecting and running games on Raspberry Pi for Smart Boxes. Replaces the terminal interface with the Raspberry Pi with a simple user interface so users can easily use the system without any LINUX knowledge.
+Android App that offers easy control of custom Smart Box soccer training technology. This provides an intuitive user interface so users can easily and wirelessly control a group of Smart Boxes without use of the default terminal interface. This enables the system to be operated by staff who are not familiar with LINUX.
