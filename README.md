@@ -1,2 +1,2 @@
-# Smart-Box-App
+# Soccer-Box-App
 Android App that offers easy control of the custom Smart Box soccer training technology I helped to create. The app allows users to easily and wirelessly control a group of Smart Boxes with an intuitive user interface that allows users to select from a variety of training games and set a wide array of game parameters. This replaces the default terminal interface and enables the system to be operated by staff who are not familiar with LINUX.
